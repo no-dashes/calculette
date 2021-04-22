@@ -1,0 +1,23 @@
+- if @calculation.errors
+  ul
+    - @calculation.errors.full_messages.each do |msg|
+      li = msg
+
+= form_for @calculation do |f|
+
+  p
+    = f.label :argument1
+    = f.text_field :argument1
+  p
+    = f.label :operand
+    = f.select :operand, Calculation::OPERANDS
+  p
+    = f.label :argument2
+    = f.text_field :argument2
+
+  = f.submit
+
+css:
+  .field_with_errors {
+    outline: 1px solid red;
+  }

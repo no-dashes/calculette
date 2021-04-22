@@ -31,3 +31,11 @@
 
 en:
   hello: "Hello world"
+  calculations:
+    index:
+      all_calculations: All Calculations for you.
+      its_so_many: actually, it's %{count}!
+  activerecord:
+    attributes:
+      calculation:
+        argument1: Argument 1

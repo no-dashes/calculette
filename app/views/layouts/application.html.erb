@@ -11,6 +11,14 @@
   </head>
 
   <body>
-    <%= yield %>
+    <% flash.each do |status, msg| %>
+      <div class="flash-<%= status %>">
+        <%= msg %>
+      </div>
+    <% end %>
+
+    <div style="outline: 1px solid green">
+      <%= yield %>
+    </div>
   </body>
 </html>
