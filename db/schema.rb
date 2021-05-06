@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_22_125134) do
+ActiveRecord::Schema.define(version: 2021_04_29_131422) do
 
-  create_table "calculations", force: :cascade do |t|
-    t.integer "argument1"
-    t.integer "argument2"
-    t.string "operand"
+# Could not dump table "calculations" because of following StandardError
+#   Unknown type 'reference' for column 'category_id'
+
+  create_table "categories", force: :cascade do |t|
+    t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

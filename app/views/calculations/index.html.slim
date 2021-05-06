@@ -3,9 +3,10 @@ h1 = t('.all_calculations')
 p = t('.its_so_many', count: @calculations.count)
 
 - if @calculations.present?
-  table
+  table.table
     thead
       tr
+        th = Calculation.human_attribute_name(:title)
         th = Calculation.human_attribute_name(:argument1)
         th Operation
         th Operand 2
@@ -13,17 +14,19 @@ p = t('.its_so_many', count: @calculations.count)
     tbody
       - @calculations.each do |calculation|
         tr
+          td = calculation.title
           td = calculation.argument1
           td = calculation.operand
           td = calculation.argument2
           td
-            a href=calculation_path(calculation)
-              | Show
-            a< href=edit_calculation_path(calculation)
-              | Edit
-            a< href=calculation_path(calculation) data-method="delete" data-confirm="really delete?"
-              | Delete
+            .btn-group
+              a.btn.btn-primary.btn-sm href=calculation_path(calculation)
+                | Show
+              a.btn.btn-secondary.btn-sm< href=edit_calculation_path(calculation)
+                | Edit
+              a.btn.btn-danger.btn-sm< href=calculation_path(calculation) data-method="delete" data-confirm="really delete?"
+                | Delete
 - else
   p There are no calculations
 
-= link_to "New Calculation", new_calculation_path
+= link_to "New Calculation", new_calculation_path, class: 'btn btn-success'

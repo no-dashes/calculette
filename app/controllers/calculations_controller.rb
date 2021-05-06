@@ -57,6 +57,6 @@ class CalculationsController < ApplicationController
 
   private def calculation_params
     params.require(:calculation).
-      permit(:argument1, :operand, :argument2)
+      permit(:argument1, :operand, :argument2, :title, :category_id)
   end
 end
