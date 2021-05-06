@@ -1,0 +1,5 @@
+p Hello #{@user.name}, please verify your email!
+
+p Please click on this link:
+p = verify_account_url(@user.id, @user.verification_token, host: 'http://127.0.0.1', port: 3000)
+

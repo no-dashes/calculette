@@ -22,11 +22,13 @@ p = t('.its_so_many', count: @calculations.count)
             .btn-group
               a.btn.btn-primary.btn-sm href=calculation_path(calculation)
                 | Show
-              a.btn.btn-secondary.btn-sm< href=edit_calculation_path(calculation)
-                | Edit
-              a.btn.btn-danger.btn-sm< href=calculation_path(calculation) data-method="delete" data-confirm="really delete?"
-                | Delete
+              - if current_user
+                a.btn.btn-secondary.btn-sm< href=edit_calculation_path(calculation)
+                  | Edit
+                a.btn.btn-danger.btn-sm< href=calculation_path(calculation) data-method="delete" data-confirm="really delete?"
+                  | Delete
 - else
   p There are no calculations
 
-= link_to "New Calculation", new_calculation_path, class: 'btn btn-success'
+- if current_user
+  = link_to "New Calculation", new_calculation_path, class: 'btn btn-success'

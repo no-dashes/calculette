@@ -20,11 +20,10 @@ html
               h4.text-white Contact
               ul.list-unstyled
                 li
-                  a.text-white href="#"  Follow on Twitter
-                li
-                  a.text-white href="#"  Like on Facebook
-                li
-                  a.text-white href="#"  Email me
+                  a.text-white href=calculations_path Calculations
+                - if current_user
+                  li
+                    a.text-white href=categories_path Categories
       .navbar.navbar-dark.bg-dark.shadow-sm
         .container
           a.navbar-brand.d-flex.align-items-center href="#"
@@ -41,3 +40,15 @@ html
             = msg
 
         = yield
+
+      hr
+
+      - if current_user
+        p
+          | Hello #{current_user.name}!
+          =< link_to "log out", session_path, method: :delete
+      - else
+        => link_to "log in", new_session_path
+        | or
+        =< link_to "sign up", new_account_path
+

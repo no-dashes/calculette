@@ -3,5 +3,13 @@ Rails.application.routes.draw do
   get 'hello', to: 'welcome#hello'
   resources :calculations
   resources :categories
+
+  resource :account, only: [:new, :create] do
+    member do
+      get 'verify/:user_id/:token', action: 'verify', as: 'verify'
+    end
+  end
+  resource :session, only: [:new, :create, :destroy]
+
   root to: redirect('/calculations')
 end

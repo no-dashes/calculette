@@ -1,6 +1,6 @@
 class Category < ApplicationRecord
 
-  has_many :calculations
+  has_many :calculations, dependent: :nullify
 
   # belongs_to :parent_category, class_name: 'Category',
   #   inverse_of: :child_categories
