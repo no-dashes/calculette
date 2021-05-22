@@ -1,0 +1,9 @@
+addition:
+  argument1: 1
+  argument2: 2
+  operand:  "+"
+
+subtraction:
+  argument1: 11
+  argument2: 8
+  operand:  "-"
