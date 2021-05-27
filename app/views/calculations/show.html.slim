@@ -10,6 +10,11 @@ h3
   = @calculation.operand
   =<> @calculation.argument2
   | =
-  =< @calculation.result
+  - if @calculation.result
+    =< @calculation.result
+  - else 
+    span#calculation-result< data-result-url=calculation_path(@calculation, :json)
+      .spinner-border<
 
 = link_to "back", calculations_path
+

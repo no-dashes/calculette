@@ -19,6 +19,10 @@ class CalculationsController < ApplicationController
 
   def show
     @calculation = Calculation.find(params[:id])
+    respond_to do |format|
+      format.html { render }
+      format.json { render json: @calculation.to_json }
+    end
   end
 
   def new
