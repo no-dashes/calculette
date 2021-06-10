@@ -30,7 +30,7 @@ html
             svg.me-2 aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox=("0 0 24 24") width="20" xmlns="http://www.w3.org/2000/svg"
               path d=("M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z")
               circle cx="12" cy="13" r="4"
-            strong Album
+            strong Calculette
           button.navbar-toggler.collapsed aria-controls="navbarHeader" aria-expanded="false" aria-label=("Toggle navigation") data-bs-target="#navbarHeader" data-bs-toggle="collapse" type="button"
             span.navbar-toggler-icon
     main
@@ -52,3 +52,5 @@ html
         | or
         =< link_to "sign up", new_account_path
 
+      - if current_user&.profile_picture.present?
+        = image_tag current_user.profile_picture.variant(resize_to_limit: [100, 100]), alt: current_user.profile_picture.filename

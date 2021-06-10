@@ -25,7 +25,7 @@ gem 'letter_opener'
 gem 'rexml'
 gem 'delayed_job'
 gem 'delayed_job_active_record'
-
+gem 'image_processing'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

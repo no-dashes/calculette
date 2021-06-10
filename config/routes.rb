@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     end
   end
   resource :session, only: [:new, :create, :destroy]
+  resource :profile, only: [:show, :update]
 
   root to: redirect('/calculations')
 end
